@@ -1,7 +1,8 @@
   <?php
+  /**
 ini_set('display_errors', 1); 
 error_reporting(E_ALL);
-
+**/
     class db {
                 public $server = 'localhost';
                 public $user = 'root';
@@ -17,9 +18,9 @@ error_reporting(E_ALL);
                 mysqli_close($this->dbCon);
         }
 
-        function select($query){
+        function query($query){
                 $myQuery = "".$query."";
-                $results = mysqli_query($this->dbCon, $myQuery);
+                $results = mysqli_query($this->dbCon, $myQuery) or die(mysql_error());
                 return $results;
         }
 

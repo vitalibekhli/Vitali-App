@@ -9,11 +9,13 @@ $(document).ready(function(){
 			    pass:password
 			  },
 			  function(data,status){
+			  	console.log(data);
 			  	console.log(data.login);
-			    if(data.login == 'true'){
+			    if(data.status == 'success'){
 			    	window.location = document.URL;
-			    }else{
-			    	console.log('wrong pass');
+			    }
+			    if(data.status == 'failed'){
+			    	console.log(data.description);
 			    	$('.small.modal').modal('show');
 			    }
 			  });

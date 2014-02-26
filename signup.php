@@ -1,10 +1,3 @@
-<?
-session_start();
-if($_SESSION['logged'] == 1){
-  echo "logged in";
-}
-else{
-  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +7,7 @@ else{
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
-  <title>Admin Login</title>
+  <title>Sign Up</title>
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
 
@@ -22,7 +15,7 @@ else{
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
   <script src="/packaged/javascript/semantic.js"></script>
-  <script src="/js/login.js"></script>
+  <script src="/js/signup.js"></script>
 
 </head>
 <body id="home">
@@ -47,6 +40,29 @@ else{
           </div>
         </div>
       </div>
+
+      <div class="field">
+        <label>Email</label>
+        <div class="ui left labeled icon input">
+          <input id="email" type="text" placeholder="email">
+          <i class="mail icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Tel</label>
+        <div class="ui left labeled icon input">
+          <input id="tel" type="text" placeholder="telephone">
+          <i class="telephone icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+
       <div class="ui error message">
         <div class="header">We noticed some issues</div>
       </div>
@@ -87,8 +103,3 @@ else{
 </body>
 
 </html>
-
-  <?
-}
-
-?>
