@@ -1,10 +1,3 @@
-<?
-session_start();
-if($_SESSION['logged'] == 1){
-  echo "logged in";
-}
-else{
-  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,12 +13,92 @@ else{
 
   <link rel="stylesheet" type="text/css" href="/packaged/css/semantic.css">
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script src="http://semantic-ui.com/javascript/library/jquery.min.js"></script>
   <script src="/packaged/javascript/semantic.js"></script>
-  <script src="/js/login.js"></script>
+  <script src="homepage.js"></script>
+  <script src="js/login.js"></script>
 
 </head>
 <body id="home">
+
+<?
+session_start();
+if($_SESSION['logged'] == 1){
+?>
+
+<div class="ui tiered menu">
+  <div class="menu">
+    <a class="active item">
+      <i class="users icon"></i>
+      Friends
+    </a>
+    <a class="item">
+      <i class="grid layout icon"></i> Browse
+    </a>
+    <a id="notes" class="item">
+      <i class="mail icon"></i> Notes
+    </a>
+
+    <div class="right menu">
+      <div class="item">
+        <div id="add-notes" class="ui button down">Add Notes</div>
+      </div>
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search icon"></i>
+        </div>
+      </div>
+      <div class="ui dropdown item">
+        Account <i class="icon dropdown"></i>
+        <div class="menu">
+          <a class="item"><i class="edit icon"></i> Edit Profile</a>
+          <a class="item"><i class="globe icon"></i> Choose Language</a>
+          <a class="item"><i class="settings icon"></i> Account Settings</a>
+          <a href="logout.php" class="item"><i class="off icon"></i>Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="admin-content" class="ui grid">
+
+<div id="notes-content" class="five column doubling ui grid">
+</div>
+
+      
+</div>
+<div class="ui pagination menu">
+  <a class="icon item">
+    <i class="left arrow icon"></i>
+  </a>
+  <a class="active item">
+    1
+  </a>
+  <div class="disabled item">
+    ...
+  </div>
+
+  <a class="item">
+    12
+  </a>
+  <a class="icon item">
+    <i class="right arrow icon"></i>
+  </a>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<?
+}
+else{
+  ?>
+
   <div class="ui form segment">
       <div class="field">
         <label>Username</label>
@@ -84,11 +157,12 @@ else{
       <p>Invalid Username or Password</p>
     </div>
   </div></div>
-</body>
 
-</html>
 
   <?
 }
 
 ?>
+</body>
+
+</html>

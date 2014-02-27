@@ -16,83 +16,12 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
   <script src="/packaged/javascript/semantic.js"></script>
   <script src="/js/login.js"></script>
+  <script src="/js/index.js"></script>
 
 </head>
 <body id="home">
 
-<div class="five column doubling ui grid">
-  <div class="column">
-    <div class="ui segment">
-    	<h3 class="ui header">Euro/USD</h3>
-    	<div class="ui clearing  divider">
-		</div>
-      <div class="content">
-        <p>Hello</p>
-        <p> Hi</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-    	<h3 class="ui header">Euro/USD</h3>
-    	<div class="ui clearing  divider">
-		</div>
-      <div class="content">
-        <p>Hello</p>
-        <p> Hi</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-    	<h3 class="ui header">Euro/USD</h3>
-    	<div class="ui clearing  divider">
-		</div>
-      <div class="content">
-        <p>Hello</p>
-        <p> Hi</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-    	<h3 class="ui header">Euro/USD</h3>
-    	<div class="ui clearing  divider">
-		</div>
-      <div class="content">
-        <p>Hello</p>
-        <p> Hi</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-    	<h3 class="ui header">Euro/USD</h3>
-    	<div class="ui clearing  divider">
-		</div>
-      <div class="content">
-        <p>Hello</p>
-        <p> Hi</p>
-      </div>
-
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui segment">
-    	<h3 class="ui header">Euro/USD</h3>
-    	<div class="ui clearing  divider">
-		</div>
-      <div class="content">
-        <p>Hello</p>
-        <p> Hi</p>
-      </div>
-
-    </div>
-  </div>
+<div id="notes-content" class="five column doubling ui grid">
 </div>
 
 </body>
