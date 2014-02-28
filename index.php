@@ -37,7 +37,7 @@ $total_pages = ($data->num_rows/2);
     ...
   </div>
   <a id="number-of-pages" class="item">
-    <? echo $total_pages;?>
+    <? echo round($total_pages);?>
   </a>
   <a id="next-page" class="icon item">
     <i class="right arrow icon"></i>

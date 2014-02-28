@@ -21,6 +21,9 @@ $(document)
     $menuItem
     .on('click', handler.activate);
    $("a#notes").click(function(){
+      $("a#page-number").empty();
+      $("a#page-number").append(1);
+      $("div#notes-page").removeClass('hidden');
       $("div#notes-content").empty();
        $.getJSON('pagination.php?page=1',function(result){
           console.log(result);
@@ -34,6 +37,9 @@ $(document)
             
           };
         });
+
+        });
+
 
        $("a#next-page").click(function(){
           pagenum = $("a#page-number").text();
@@ -75,8 +81,12 @@ $(document)
           };
         });
 
-        });
-   })
+
+   });
+  $("div#add-notes").click(function(){
+      $('.small.modal').modal('show');
+  });
+
 
   })
 ;

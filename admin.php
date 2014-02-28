@@ -70,10 +70,8 @@ if($_SESSION['logged'] == 1){
 </div>
 
 <div id="admin-content" class="ui grid">
-<div id="notes-page" class="invisible">
-  <div id="notes-content" class="five column doubling ui grid">
-  </div>
-  <div class="ui pagination menu">
+<div id="notes-page" class="hidden">
+  <div class="ui pagination menu right">
   <a id="before-page"class="icon item">
     <i class="left arrow icon"></i>
   </a>
@@ -84,12 +82,15 @@ if($_SESSION['logged'] == 1){
     ...
   </div>
   <a id="number-of-pages" class="item">
-    <? echo $total_pages;?>
+    <? echo round($total_pages);?>
   </a>
   <a id="next-page" class="icon item">
     <i class="right arrow icon"></i>
   </a>
 </div>
+  <div id="notes-content" class="five column doubling ui grid">
+  </div>
+ 
 </div>
       
 </div>
@@ -97,6 +98,56 @@ if($_SESSION['logged'] == 1){
 </div>
 </div>
 
+
+<div class="ui dimmer page hidden"><div class="ui basic modal transition hidden" style="margin-top: -142px;">
+    <div class="header">
+      Change Your Homepage
+    </div>
+    <div class="content">
+      <div class="left">
+        <i class="home icon"></i>
+      </div>
+      <div class="right">
+        <p>Are you sure you want to change your homepage to <b>Poodle.com</b>?</p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="two fluid ui buttons">
+        <div class="ui negative labeled icon button">
+          <i class="remove icon"></i>
+          No
+        </div>
+        <div class="ui positive right labeled icon button">
+          Yes
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+  </div><div class="ui small modal transition hidden" style="margin-top: -70px;">
+    <i class="close icon"></i>
+    <div class="header">
+      Add Note
+    </div>
+    <div class="content">
+      <div class="left">
+        <img class="ui medium image" src="/images/demo/avatar2.jpg">
+      </div>
+      <div class="right">
+        <div class="ui header">Lorem Ipsum</div>
+        <p>I mean it's not really the best profile photo.</p>
+        <p>It's resampled to like two times the size it's suppose to be. Our image detection software also says it might even be inappropriate.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black button">
+        Cancel
+      </div>
+      <div class="ui positive right labeled icon button">
+        Add Note
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div></div>
 
 
 
