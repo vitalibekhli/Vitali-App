@@ -1,87 +1,87 @@
-$(document)
-  .ready(function() {
-
-    $('div#notes-page').on('click', '.delete-note', function () { 
-        initElement = this;
-        json = mapDOM(initElement, true);
-        json = jQuery.parseJSON(json);
-        noteid = json.attributes.noteid;
-        
-      })
-
-    $menuItem = $('.menu a.item, .menu .link.item');
-    handler = {
-
-      activate: function() {
-        if(!$(this).hasClass('dropdown')) {
-          $(this)
-            .addClass('active')
-            .closest('.ui.menu')
-            .find('.item')
-              .not($(this))
-              .removeClass('active')
-          ;
-        }
+function getNotes(link){
+          $.getJSON(link,function(result){
+          console.log(result);
+          note = result;
+          for (var i = note.length - 1; i >= 0; i--) {
+            noteid = note[i].id;
+            date = note[i].Created_time;
+            Label = note[i].Label;
+            Direction = note[i].Direction;
+            if(Direction == 1){
+              Direction = '<i class="up icon"></i>';
+              color = 'green';
+            }
+             if(Direction == 2){
+              Direction = '<i class="down icon"></i>'
+              color = 'red';
+            }
+             if(Direction == 3){
+              Direction = '<i class="right icon"></i>';
+              color = 'white';
+            }
+            content = note[i].Content;
+            $("div#notes-content").append('<div noteid="'+noteid+'" class="column"><div id="note-body" class="ui '+color+' segment"><i noteid="'+noteid+'" class="delete-note close icon right"><h3 class="ui header">'+Direction+' '+Label+'</h3></i><div class="ui clearing  divider"></div><div class="content"><p>'+content+'</p><p>'+date+'</p></div></div></div>');
+             
+          };
+        });
       }
 
-    }
-    $('.ui.dropdown').dropdown({on: 'hover'});
+function deleteNotes(){
+    $('.delete-note').click(function() {
+    alert( this.noteid );
+  });
 
-    $menuItem
-    .on('click', handler.activate);
-   $("a#notes").click(function(){
-      $("a#page-number").empty();
-      $("a#page-number").append(1);
-      $("div#notes-page").removeClass('hidden');
-      $("div#notes-content").empty();
-      
-      getNotes('pagination.php?page=1');
-     
-
-        });
+}
 
 
-       $("a#next-page").click(function(){
-          pagenum = $("a#page-number").text();
-          pagenum = (parseInt(pagenum)+1);
-          $("a#page-number").empty();
-          $("a#page-number").append(pagenum);
-          $("div#notes-content").empty();
-          pagelink = 'pagination.php?page='+pagenum+'';
-
-          getNotes(pagelink);
-
-        });
-
-       $("a#before-page").click(function(){
-          pagenum = $("a#page-number").text();
-          pagenum = (parseInt(pagenum)-1);
-          $("a#page-number").empty();
-          $("a#page-number").append(pagenum);
-          $("div#notes-content").empty();
-          pagelink = 'pagination.php?page='+pagenum+'';
-
-         getNotes(pagelink);
-
-
-   });
-  
-  $("div#confirm-add-note").click(function(){
-      content = $("textarea#add-note-textarea").val();
-      fee = $("input#add-note-fee").val();
-      direction = $("input#add-note-direction").val();
-      label = $("input#add-note-label").val();
-
-      $.getJSON('notes.php?fee='+fee+'&content='+content+'&direction='+direction+'&label='+label+'',function(result){
-
-      });
-       $('a#notes').trigger('click');
+function mapDOM(element, json) {
+    var treeObject = {};
     
-  });
+    // If string convert to document Node
+    if (typeof element === "string") {
+        if (window.DOMParser)
+        {
+              parser = new DOMParser();
+              docNode = parser.parseFromString(element,"text/xml");
+        }
+        else // Microsoft strikes again
+        {
+              docNode = new ActiveXObject("Microsoft.XMLDOM");
+              docNode.async = false;
+              docNode.loadXML(element); 
+        } 
+        element = docNode.firstChild;
+    }
+    
+    //Recursively loop through DOM elements and assign properties to object
+    function treeHTML(element, object) {
+        object["type"] = element.nodeName;
+        var nodeList = element.childNodes;
+        if (nodeList != null) {
+            if (nodeList.length) {
+                object["content"] = [];
+                for (var i = 0; i < nodeList.length; i++) {
+                    if (nodeList[i].nodeType == 3) {
+                        object["content"].push(nodeList[i].nodeValue);
+                    } else {
+                        object["content"].push({});
+                        treeHTML(nodeList[i], object["content"][object["content"].length -1]);
+                    }
+                }
+            }
+        }
+        if (element.attributes != null) {
+            if (element.attributes.length) {
+                object["attributes"] = {};
+                for (var i = 0; i < element.attributes.length; i++) {
+                    object["attributes"][element.attributes[i].nodeName] = element.attributes[i].nodeValue;
+                }
+            }
+        }
+    }
+    treeHTML(element, treeObject);
+    
+    return (json) ? JSON.stringify(treeObject) : treeObject;
+}
 
-  $("div#add-notes").click(function(){
-      $('.small.modal').modal('show');
-  });
 
-  })
-;
