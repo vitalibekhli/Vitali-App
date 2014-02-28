@@ -89,7 +89,7 @@ $(document)
   });
 
   $("div#add-notes").click(function(){
-      $('.shit.modal').modal('show');
+      $('.small.modal').modal('show');
   });
 
   })

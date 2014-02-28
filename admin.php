@@ -22,7 +22,7 @@ $total_pages = ($data->num_rows/2);
 
   <script src="http://semantic-ui.com/javascript/library/jquery.min.js"></script>
   <script src="/packaged/javascript/semantic.js"></script>
-  <script src="homepage.js"></script>
+  <script src="/js/homepage.js"></script>
   <script src="js/login.js"></script>
 
 </head>
@@ -99,55 +99,59 @@ if($_SESSION['logged'] == 1){
 </div>
 
 
-<div class="ui dimmer page hidden"><div class="ui basic modal transition hidden" style="margin-top: -142px;">
-    <div class="header">
-      Change Your Homepage
-    </div>
-    <div class="content">
-      <div class="left">
-        <i class="home icon"></i>
-      </div>
-      <div class="right">
-        <p>Are you sure you want to change your homepage to <b>Poodle.com</b>?</p>
-      </div>
-    </div>
-    <div class="actions">
-      <div class="two fluid ui buttons">
-        <div class="ui negative labeled icon button">
-          <i class="remove icon"></i>
-          No
-        </div>
-        <div class="ui positive right labeled icon button">
-          Yes
-          <i class="checkmark icon"></i>
-        </div>
-      </div>
-    </div>
-  </div><div class="ui small modal transition hidden" style="margin-top: -70px;">
+<div class="ui dimmer page hidden">
+  <div class="ui small modal transition hidden" style="margin-top: -70px;">
     <i class="close icon"></i>
     <div class="header">
       Add Note
     </div>
     <div class="content">
-      <div class="left">
-        <img class="ui medium image" src="/images/demo/avatar2.jpg">
-      </div>
-      <div class="right">
-        <div class="ui header">Lorem Ipsum</div>
-        <p>I mean it's not really the best profile photo.</p>
-        <p>It's resampled to like two times the size it's suppose to be. Our image detection software also says it might even be inappropriate.</p>
-      </div>
+          <div class="segment">
+             <div class="actions">
+              <div class="ui black button">
+                Cancel
+              </div>
+              <div id="confirm-add-note" class="ui positive right labeled icon button">
+                Add Note
+                <i class="checkmark icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui form">
+                <div class="field">
+                  <label>Content</label>
+                  <textarea></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Direction</label>
+              <div class="ui left labeled input">
+                <input type="text" placeholder="Direction">
+              </div>
+            </div>
+            <div class="field">
+              <label>Label</label>
+              <div class="ui left labeled input">
+                <input type="text" placeholder="Label">
+              </div>
+            </div>
+            <div class="field">
+              <label>Fee</label>
+              <div class="ui left labeled input">
+                <input type="text" placeholder="Fee">
+              </div>
+            </div>
+          
+            
+            <br>
+            <br>
+
+        
     </div>
-    <div class="actions">
-      <div class="ui black button">
-        Cancel
-      </div>
-      <div class="ui positive right labeled icon button">
-        Add Note
-        <i class="checkmark icon"></i>
-      </div>
-    </div>
-  </div></div>
+   
+  </div>
+</div>
 
 
 
