@@ -1,3 +1,10 @@
+<?
+require_once('databaseconfig.php');
+$mySQL = new db();
+$data = $mySQL->query("SELECT * from Notes ORDER BY ID DESC");
+$total_pages = ($data->num_rows/2);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,31 +68,32 @@ if($_SESSION['logged'] == 1){
     </div>
   </div>
 </div>
+
 <div id="admin-content" class="ui grid">
-
-<div id="notes-content" class="five column doubling ui grid">
-</div>
-
-      
-</div>
-<div class="ui pagination menu">
-  <a class="icon item">
+<div id="notes-page" class="invisible">
+  <div id="notes-content" class="five column doubling ui grid">
+  </div>
+  <div class="ui pagination menu">
+  <a id="before-page"class="icon item">
     <i class="left arrow icon"></i>
   </a>
-  <a class="active item">
+  <a id="page-number" class="active item">
     1
   </a>
   <div class="disabled item">
     ...
   </div>
-
-  <a class="item">
-    12
+  <a id="number-of-pages" class="item">
+    <? echo $total_pages;?>
   </a>
-  <a class="icon item">
+  <a id="next-page" class="icon item">
     <i class="right arrow icon"></i>
   </a>
 </div>
+</div>
+      
+</div>
+
 </div>
 </div>
 

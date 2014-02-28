@@ -1,3 +1,9 @@
+<?
+require_once('databaseconfig.php');
+$mySQL = new db();
+$data = $mySQL->query("SELECT * from Notes ORDER BY ID DESC");
+$total_pages = ($data->num_rows/2);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +26,23 @@
 
 </head>
 <body id="home">
-
+<div class="ui pagination menu">
+  <a id="before-page"class="icon item">
+    <i class="left arrow icon"></i>
+  </a>
+  <a id="page-number" class="active item">
+    1
+  </a>
+  <div class="disabled item">
+    ...
+  </div>
+  <a id="number-of-pages" class="item">
+    <? echo $total_pages;?>
+  </a>
+  <a id="next-page" class="icon item">
+    <i class="right arrow icon"></i>
+  </a>
+</div>
 <div id="notes-content" class="five column doubling ui grid">
 </div>
 
