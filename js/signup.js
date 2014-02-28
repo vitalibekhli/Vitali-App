@@ -16,9 +16,14 @@ $(document).ready(function(){
 				  	console.log(data)
 				  	if(data.status == 'success'){
 				  		console.log(data.description);
+
 				  	};
 				  	if(data.status == 'failed'){
 				  		console.log(data.description);
+				  		$("p#signup-modal").empty();
+				  		$("p#signup-modal").append(data.description);
+				  		$('.small.modal').modal('show');
+				  		
 				  	};
 				  });
 		});

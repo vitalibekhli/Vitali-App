@@ -17862,3 +17862,9 @@ ol.ui.horizontal.list li:before,
   opacity: 0.8;
 }
 .hidden {display:none;}
+.red {
+  background-color: #D95C5C !important;
+}
+.green {
+  background-color: #5BBD72 !important;
+}

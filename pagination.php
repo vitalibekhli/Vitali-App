@@ -38,14 +38,14 @@ return $resultsValues;
  
 $pag = new Pagination();
 
-$data = $mySQL->query("SELECT * from Notes ORDER BY ID DESC");
+$data = $mySQL->query("SELECT * from Notes ORDER BY id DESC");
 $arrayRow = array();
 while($row = mysqli_fetch_assoc($data)){
 				array_push($arrayRow, $row);
 			}
 
 
-$numbers = $pag->Paginate($arrayRow,2);
+$numbers = $pag->Paginate($arrayRow,5);
 $result = $pag->fetchResult();
 echo json_encode($result);
 

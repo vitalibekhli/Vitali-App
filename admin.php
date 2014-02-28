@@ -22,9 +22,9 @@ $total_pages = ($data->num_rows/2);
 
   <script src="http://semantic-ui.com/javascript/library/jquery.min.js"></script>
   <script src="/packaged/javascript/semantic.js"></script>
+  <script src="/js/default.js"></script>
   <script src="/js/homepage.js"></script>
   <script src="js/login.js"></script>
-
 </head>
 <body id="home">
 
@@ -125,23 +125,29 @@ if($_SESSION['logged'] == 1){
               </div>
             </div>
             <div class="field">
+              <div class="ui selection dropdown">
+              <input id="add-note-fee" type="hidden" name="Fee">
+              <div class="default text">Fee</div>
+              <i class="dropdown icon"></i>
+              <div class="menu ui transition hidden">
+                <div class="item" data-value="1">True</div>
+                <div class="item" data-value="2">False</div>
+              </div>
+            </div>
+            </div>
+            <div class="field">
               <label>Direction</label>
               <div class="ui left labeled input">
                 <input id="add-note-direction" type="text" placeholder="Direction">
               </div>
             </div>
             <div class="field">
-              <label>Label</label>
+              <label>Title</label>
               <div class="ui left labeled input">
                 <input id="add-note-label" type="text" placeholder="Label">
               </div>
             </div>
-            <div class="field">
-              <label>Fee</label>
-              <div class="ui left labeled input">
-                <input id="add-note-fee" type="text" placeholder="Fee">
-              </div>
-            </div>
+           
           
             
             <br>

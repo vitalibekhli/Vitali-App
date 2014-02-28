@@ -1,5 +1,9 @@
 $(document)
   .ready(function() {
+    $('.delete-note').click(function() {
+          alert( this.noteid );
+      });
+
     $menuItem = $('.menu a.item, .menu .link.item');
     handler = {
 
@@ -25,18 +29,9 @@ $(document)
       $("a#page-number").append(1);
       $("div#notes-page").removeClass('hidden');
       $("div#notes-content").empty();
-       $.getJSON('pagination.php?page=1',function(result){
-          console.log(result);
-          note = result;
-          for (var i = note.length - 1; i >= 0; i--) {
-            noteid = note[i].id;
-            date = note[i].Created_time;
-            Label = note[i].Label;
-            
-            $("div#notes-content").append('<div noteid="'+noteid+'" class="column"><div class="ui segment"><h3 class="ui header">Direction:</h3><div class="ui clearing  divider"></div><div class="content"><p>'+Label+'</p><p>'+date+'</p></div></div></div>');
-            
-          };
-        });
+      
+      getNotes('pagination.php?page=1');
+     
 
         });
 
@@ -47,18 +42,9 @@ $(document)
           $("a#page-number").empty();
           $("a#page-number").append(pagenum);
           $("div#notes-content").empty();
-          $.getJSON('pagination.php?page='+pagenum+'',function(result){
-          console.log(result);
-          note = result;
-          for (var i = note.length - 1; i >= 0; i--) {
-            noteid = note[i].id;
-            date = note[i].Created_time;
-            Label = note[i].Label;
-            
-            $("div#notes-content").append('<div noteid="'+noteid+'" class="column"><div class="ui segment"><h3 class="ui header">Direction:</h3><div class="ui clearing  divider"></div><div class="content"><p>'+Label+'</p><p>'+date+'</p></div></div></div>');
-            
-          };
-        });
+          pagelink = 'pagination.php?page='+pagenum+'';
+
+          getNotes(pagelink);
 
         });
 
@@ -68,18 +54,9 @@ $(document)
           $("a#page-number").empty();
           $("a#page-number").append(pagenum);
           $("div#notes-content").empty();
-          $.getJSON('pagination.php?page='+pagenum+'',function(result){
-          console.log(result);
-          note = result;
-          for (var i = note.length - 1; i >= 0; i--) {
-            noteid = note[i].id;
-            date = note[i].Created_time;
-            Label = note[i].Label;
-            
-            $("div#notes-content").append('<div noteid="'+noteid+'" class="column"><div class="ui segment"><h3 class="ui header">Direction:</h3><div class="ui clearing  divider"></div><div class="content"><p>'+Label+'</p><p>'+date+'</p></div></div></div>');
-            
-          };
-        });
+          pagelink = 'pagination.php?page='+pagenum+'';
+
+         getNotes(pagelink);
 
 
    });
@@ -93,6 +70,7 @@ $(document)
       $.getJSON('notes.php?fee='+fee+'&content='+content+'&direction='+direction+'&label='+label+'',function(result){
 
       });
+       $('a#notes').trigger('click');
     
   });
 

@@ -66,7 +66,7 @@
       <div class="ui error message">
         <div class="header">We noticed some issues</div>
       </div>
-      <div id="login" class="ui blue submit button">Login</div>
+      <div id="login" class="ui blue submit button">Sign Up</div>
     </div>
     <div class="ui dimmer page hidden"><div class="ui basic modal transition hidden" style="margin-top: -142px;">
     <div class="header">
@@ -97,7 +97,7 @@
     <div class="header">
     </div>
     <div class="content">
-      <p>Invalid Username or Password</p>
+      <p id="signup-modal">Invalid Username or Password</p>
     </div>
   </div></div>
 </body>
