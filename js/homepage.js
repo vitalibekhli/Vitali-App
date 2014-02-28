@@ -85,7 +85,15 @@ $(document)
    });
   
   $("div#confirm-add-note").click(function(){
-    alert(0);
+      content = $("textarea#add-note-textarea").val();
+      fee = $("input#add-note-fee").val();
+      direction = $("input#add-note-direction").val();
+      label = $("input#add-note-label").val();
+
+      $.getJSON('notes.php?fee='+fee+'&content='+content+'&direction='+direction+'&label='+label+'',function(result){
+
+      });
+    
   });
 
   $("div#add-notes").click(function(){

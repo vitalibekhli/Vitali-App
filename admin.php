@@ -120,26 +120,26 @@ if($_SESSION['logged'] == 1){
               <div class="ui form">
                 <div class="field">
                   <label>Content</label>
-                  <textarea></textarea>
+                  <textarea id="add-note-textarea"></textarea>
                 </div>
               </div>
             </div>
             <div class="field">
               <label>Direction</label>
               <div class="ui left labeled input">
-                <input type="text" placeholder="Direction">
+                <input id="add-note-direction" type="text" placeholder="Direction">
               </div>
             </div>
             <div class="field">
               <label>Label</label>
               <div class="ui left labeled input">
-                <input type="text" placeholder="Label">
+                <input id="add-note-label" type="text" placeholder="Label">
               </div>
             </div>
             <div class="field">
               <label>Fee</label>
               <div class="ui left labeled input">
-                <input type="text" placeholder="Fee">
+                <input id="add-note-fee" type="text" placeholder="Fee">
               </div>
             </div>
           
