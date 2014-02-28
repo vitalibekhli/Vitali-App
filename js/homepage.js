@@ -1,8 +1,13 @@
 $(document)
   .ready(function() {
-    $('.delete-note').click(function() {
-          alert( this.noteid );
-      });
+
+    $('div#notes-page').on('click', '.delete-note', function () { 
+        initElement = this;
+        json = mapDOM(initElement, true);
+        json = jQuery.parseJSON(json);
+        noteid = json.attributes.noteid;
+        
+      })
 
     $menuItem = $('.menu a.item, .menu .link.item');
     handler = {

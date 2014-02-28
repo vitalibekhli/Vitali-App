@@ -22,6 +22,7 @@ $total_pages = ($data->num_rows/2);
 
   <script src="http://semantic-ui.com/javascript/library/jquery.min.js"></script>
   <script src="/packaged/javascript/semantic.js"></script>
+  <script src="http://ejohn.org/files/htmlparser.js"></script>
   <script src="/js/default.js"></script>
   <script src="/js/homepage.js"></script>
   <script src="js/login.js"></script>
